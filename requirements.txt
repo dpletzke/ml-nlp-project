@@ -1,0 +1,7 @@
+tensorflow>=2.16
+datasets
+numpy
+pandas
+evaluate
+rouge_score
+ipykernel
