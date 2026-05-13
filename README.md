@@ -60,6 +60,16 @@ validation_sample = validation_data.select(range(1000))
 test_sample = test_data.select(range(1000))
 ```
 
+## Ejecución en Google Colab
+
+1. Sube `taller_week6_cnn_dailymail.ipynb` a Google Colab.
+2. En Colab, activa GPU desde `Runtime` -> `Change runtime type` -> `T4 GPU`.
+3. Ejecuta la celda `0. Colab setup` antes de las demás celdas. Esa celda instala `datasets`, `evaluate` y `rouge_score`, descarga GloVe en `data/glove/` y muestra la GPU disponible.
+4. Si quieres conservar el modelo después de cerrar Colab, cambia `USE_GOOGLE_DRIVE = True` en la celda de setup. El notebook guardará el modelo en `/content/drive/MyDrive/ml-nlp-project/model/`.
+5. Ejecuta el resto del notebook en orden.
+
+Con la configuración actual (`N_TRAIN = 10_000`, `N_VAL = 1_000`, `epochs = 10`), el entrenamiento puede tardar varios minutos en GPU y bastante más en CPU. Si necesitas una prueba rápida, baja temporalmente `N_TRAIN`, `N_VAL` o `epochs`.
+
 ## Flujo esperado del notebook
 
 1. Instalar e importar dependencias: `datasets`, `tensorflow`, `numpy`, `pandas`, `spacy` o una fuente equivalente de embeddings.
@@ -84,4 +94,3 @@ El entregable debe mostrar:
 - El modelo Encoder-Decoder + Atención + pretrained embeddings entrenado para resumen automático.
 - Ejemplos de artículos, resumen real y resumen generado por el modelo.
 - Una conclusión corta sobre la calidad de los resultados y las limitaciones observadas.
-
